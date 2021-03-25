@@ -1,7 +1,7 @@
 import enzyme, { shallow } from 'enzyme';
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import Congrats from "./Congrats";
-import { findByAttr } from "./tests/testUtils";
+import { findByAttr, checkProp } from "./tests/testUtils";
 enzyme.configure({ adapter: new Adapter() });
 
 const setup = (props = {}) => {
@@ -24,3 +24,10 @@ test("renders congrats message when sucesss prop true", () => {
   const message = findByAttr(wrapper, "congrats-message");
   expect(message.text().length).not.toBe(0)
 });
+
+test('does not throw warning with expected props', ()=>{
+    const expectedProps = { sucess: false };
+    checkProp(Congrats, expectedProps);
+});
+
+
