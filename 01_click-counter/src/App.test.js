@@ -49,3 +49,24 @@ test("clicking button incremenent counter display", () => {
 
   expect(count).toBe("1");
 });
+
+test('render decrement button', ()=>{
+  const wrapper = setup();
+  const button = findByTestAttr(wrapper, "decrement-button");
+
+  expect(button.length).toBe(1);
+});
+
+test('decrement count on click', ()=>{
+  const wrapper = setup();
+  const button = findByTestAttr(wrapper, "decrement-button");
+
+  button.simulate('click');
+  const count = findByTestAttr(wrapper, "count").text();
+  expect(count).toBe("-1")
+});
+
+
+
+
+
