@@ -1,4 +1,4 @@
-
+import propTypes from 'prop-types';
 export default function Congrats({sucess}){
     if(sucess){
         return (
@@ -12,4 +12,8 @@ export default function Congrats({sucess}){
      else {
          return <div data-test="component-congrats"></div>
      }
+}
+
+Congrats.prototype = {
+    sucess: propTypes.bool
 }

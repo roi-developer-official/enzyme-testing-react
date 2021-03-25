@@ -1,4 +1,4 @@
-import enzyme, { shallow } from "enzyme";
+import enzyme, { shallow } from 'enzyme';
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import Congrats from "./Congrats";
 import { findByAttr } from "./tests/testUtils";
