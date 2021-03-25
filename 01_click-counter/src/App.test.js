@@ -1,13 +1,9 @@
 import App from "./App";
-import Enzyme, { shallow, ShallowWrapper} from "enzyme";
+import Enzyme, { shallow} from "enzyme";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 Enzyme.configure({ adapter: new Adapter() });
 
-/**
- * Factory function to create a ShallowWrapper for the App component
- * @Function
- * @returns { ShallowWrapper }
- */
+
 const setup = () => {
   return shallow(<App />);
 };

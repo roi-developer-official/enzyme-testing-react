@@ -11,7 +11,6 @@ function App() {
     </h1>
     <button onClick={()=>setCount(c=> c + 1)} data-test="increment-button">Increment counter</button>
     <button onClick={()=>setCount(c=>c-1)} data-test="decrement-button">Decrement count</button>
-    
     </div>
   );
 }
