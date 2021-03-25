@@ -1,5 +1,10 @@
 import checkPropTypes from 'check-prop-types';
 
+/**
+ * Check the props of the component when called 
+ * @param {Componet} component 
+ * @param {Props} props 
+ */
 export const checkProp =(component, props)=>{
     const propError = checkPropTypes(component.prototype, props, 'prop', component.name);
     expect(propError).toBeUndefined();
