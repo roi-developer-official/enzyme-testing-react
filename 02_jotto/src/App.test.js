@@ -1,4 +1,4 @@
-import enzyme, { shallow } from "enzyme";
+import { shallow } from "enzyme";
 import { findByAttr } from "./tests/testUtils";
 import App from "./App";
 
