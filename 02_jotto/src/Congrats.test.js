@@ -5,6 +5,7 @@ import { findByAttr, checkProp } from "./tests/testUtils";
 const setup = (props = {}) => {
   return shallow(<Congrats {...props} />);
 };
+
 test("renders without error", () => {
   const wrapper = setup();
   const component = findByAttr(wrapper, "component-congrats");
