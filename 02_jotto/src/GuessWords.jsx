@@ -14,7 +14,7 @@ function GuessWords(props) {
               <td>{word.guessedWord}</td>
               <td>{word.letterMatchCount}</td>
           </tr>
-      ))
+      ));
       content = (
           <div data-test="guessed-words">
               <h3>Guessed Words</h3>
