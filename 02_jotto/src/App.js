@@ -3,10 +3,17 @@ import './App.css';
 import Input from './Input';
 import Congrats from './Congrats';
 import GuessWords from './GuessWords';
+import { useEffect } from 'react';
+import {getSecretWord} from './actions'
 function App() {
   const success = false;
   const secretWord = 'party';
-  const guessedWords = [];
+
+  useEffect(()=>{
+    getSecretWord();
+  },[]);
+
+
   return (
 
     <div data-test="component-app" className="App">
