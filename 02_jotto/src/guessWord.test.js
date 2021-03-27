@@ -25,15 +25,9 @@ describe("no words guessed", () => {
     });
   });
 
-  test("creates a guessWords table with one row", () => {
+  test.skip("creates a guessWords table with one row", () => {
     const guessedWordsRows = findByAttr(wrapper, "guess-word");
     expect(guessedWordsRows).toHaveLength(1);
   });
 
 });
-
-describe("some words have been guessed", () => {
-    
-});
-
-describe("guess secret word", () => {});
