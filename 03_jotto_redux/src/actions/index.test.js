@@ -1,5 +1,15 @@
 import moxios from "moxios";
-import { getSecretWord } from "./";
+import { getSecretWord, currectGuess, actionTypes } from "./";
+
+describe("currectGuess", () => {
+  test("return an action type `CURRECT_GUESS`", () => {
+    const action = currectGuess();
+
+    // this is a deep equal not shallow the inside objecs as well
+    expect(action).toMatchObject({ type: actionTypes.CORRECT_GUESS });
+  });
+});
+
 describe("getSecretWord", () => {
   beforeEach(() => {
     moxios.install();
@@ -20,6 +30,5 @@ describe("getSecretWord", () => {
     return getSecretWord().then((secretWord) => {
       expect(secretWord).toBe("party");
     });
-    
   });
 });
