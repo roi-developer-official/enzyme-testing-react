@@ -7,15 +7,30 @@ export const getSecretWord = () => {
 //redux action
 export const actionTypes = {
   CORRECT_GUESS: "CURRECT_GUESS",
+  GUESS_WORD: "GUESS_WORD"
 };
 
 /**
  * @function currectGuess
  * @returns {object} - Action object with type 'CURRECT_GUESS'
  */
-
-export function currectGuess() {
+export const currectGuess = ()=>{
   return { 
-      type: actionTypes.CORRECT_GUESS
+      type: actionTypes.CORRECT_GUESS,
+      GUESS_WORD: actionTypes.GUESS_WORD
   };
+}
+
+/**
+ * Returns Redux thunk function that dispatches GUESS_WORD action
+ * and (conditionlly) CORRECT_GUESS action
+ * @function guessedWord
+ * @param {string} guessedWord 
+ * @returns {function} Redux thunk function
+ */
+export const guessWord = (guessedWord)=>{
+    return function(dispatch, getState){
+        
+
+    };
 }
