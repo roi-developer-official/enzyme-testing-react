@@ -14,7 +14,6 @@ export const actionTypes = {
  * @returns {object} - Action object with type 'CURRECT_GUESS'
  */
 
-console.log(actionTypes.CORRECT_GUESS);
 export function currectGuess() {
   return { 
       type: actionTypes.CORRECT_GUESS
