@@ -1,4 +1,16 @@
 import checkPropTypes from 'check-prop-types';
+import { createStore} from 'redux';
+import rootReducer from '../reducers';
+
+/**
+ * create testing store with inported reducers, middleware and initial state
+ * @function storeFactory
+ * @param {object} initialState 
+ * @returns {Store} - redux store
+ */
+export const storeFactory = (initialState)=>{
+    return createStore(rootReducer, initialState);
+}
 
 /**
  * Check the props of the component when called 
@@ -19,3 +31,4 @@ export const checkProp =(component, props)=>{
 export const findByAttr = (wrapper,val)=>{
     return wrapper.find(`[data-test='${val}']`);
 }
+

@@ -1,15 +1,20 @@
 import React from "react";
-import { shallow } from "enzyme";
-
-import { findByAttr, checkProp } from "./tests/testUtils";
+import { mount } from "enzyme";
+import { Provider } from "react-redux";
+import { findByAttr, checkProp, storeFactory } from "./tests/testUtils";
 import Input from "./Input";
 
-const setup = (secretWord = "party") => {
-  return shallow(<Input secretWord={secretWord} />);
+const setup = (initialState ={},secretWord = "party") => {
+  const store = storeFactory(initialState);
+  return mount(
+    <Provider store={store}>
+      <Input secretWord={secretWord} />
+    </Provider>
+  );
 };
 
 test("renders without error", () => {
-  const wrapper = setup();
+  const wrapper = setup({success: false});
   const inputComponent = findByAttr(wrapper, "component-input");
   expect(inputComponent.length).toBe(1);
 });
@@ -27,10 +32,10 @@ describe("state controlled input field", () => {
     mockSetCurrentGuess.mockClear();
     originalUseState = React.useState;
     React.useState = jest.fn(() => ["", mockSetCurrentGuess]);
-    wrapper = setup();
+    wrapper = setup({success: true});
   });
 
-  afterEach(()=>{
+  afterEach(() => {
     React.useState = originalUseState;
   });
 
@@ -41,12 +46,9 @@ describe("state controlled input field", () => {
     expect(mockSetCurrentGuess).toHaveBeenCalledWith("train");
   });
 
-
   test("field is clrear upon submit", () => {
     const submitButton = findByAttr(wrapper, "submit-button");
-    submitButton.simulate("click", { preventDefault: ()=>{}});
+    submitButton.simulate("click", { preventDefault: () => {} });
     expect(mockSetCurrentGuess).toHaveBeenCalledWith("");
   });
-
 });
-
